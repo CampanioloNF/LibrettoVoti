@@ -23,5 +23,23 @@ public class Libretto {
 		voti.add(v);
 		 
 	}
+	
+	/**
+	 * Selezione un sottoinsime di voti con il punteggio specificato
+	 * @param punti
+	 * @return lista di {@link Voto} aventi quel punteggio (eventualmente vuota)
+	 */
+	
+	public List<Voto> cercaVoti (int voto){
+		
+		List <Voto> result = new ArrayList <Voto>();
+		
+		for(Voto v : this.voti) {
+			if(v.getPunti()==voto)
+				result.add(v);
+		}
+		
+		return result;
+	}
 
 }
