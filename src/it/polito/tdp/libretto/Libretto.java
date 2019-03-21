@@ -51,12 +51,18 @@ public class Libretto {
 	
 	public Voto cercaEsame (String nomeEsame) {
 		
+		//Utilizziamo solo metodi di alto livello, non andiamo a scrivere noi i clicli for 
 		
-		for(Voto v : this.voti) {
-			if(v.getNomeCorso().equals(nomeEsame))
-				return v;
-		}
-		return null;
+		Voto voto = new Voto(0, nomeEsame, null);
+		// una mezza porc**a ma molto utile
+		int pos = this.voti.indexOf(voto);
+		
+		if(pos==-1)
+		  return null;
+		else
+		  return this.voti.get(pos);
+			
+			
 	}
 	
 	/**
@@ -68,16 +74,11 @@ public class Libretto {
 	
 	public boolean esisteGiaVoto(Voto v) {
 		
-		Voto trovato = this.cercaEsame(v.getNomeCorso());
-		
-		if(trovato==null)
+		int pos = this.voti.indexOf(v);
+		if(pos==-1)
 			return false;
-		else {
-			if(trovato.getPunti()==v.getPunti())
-				return true;
-			else 
-				return false;
-		}
+		else 
+			return (v.getPunti()==voti.get(pos).getPunti());
 		
 	}
 

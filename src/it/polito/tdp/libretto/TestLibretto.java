@@ -26,6 +26,14 @@ public class TestLibretto {
 		System.out.println(lib.cercaEsame("Analisi I"));
 		System.out.println(lib.cercaEsame("Analisi III"));
 		
+		boolean b1 = lib.esisteGiaVoto(new Voto(18, "Geometria", LocalDate.now())); //voto giusto (true)
+		boolean b2 = lib.esisteGiaVoto(new Voto(28, "Geometria", LocalDate.now())); //voto sbagliato (false)
+		boolean b3 = lib.esisteGiaVoto(new Voto(30, "Merendine", LocalDate.now())); // voto mancante (false)
+		
+		System.out.format("i voti sono %s, %s e %s ", b1, b2, b3);
+		
+		
+		
 	}
 
 }
